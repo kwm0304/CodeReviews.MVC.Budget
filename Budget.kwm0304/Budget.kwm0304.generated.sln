@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budget.kwm0304", "Budget.kwm0304.csproj", "{51E9D4D8-682D-4903-9D31-1FA42198FA14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budget.kwm0304", "Budget.kwm0304.csproj", "{BB2CCC0F-E02A-4F76-8EA7-E5945C52C6BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51E9D4D8-682D-4903-9D31-1FA42198FA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51E9D4D8-682D-4903-9D31-1FA42198FA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51E9D4D8-682D-4903-9D31-1FA42198FA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51E9D4D8-682D-4903-9D31-1FA42198FA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2CCC0F-E02A-4F76-8EA7-E5945C52C6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2CCC0F-E02A-4F76-8EA7-E5945C52C6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2CCC0F-E02A-4F76-8EA7-E5945C52C6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2CCC0F-E02A-4F76-8EA7-E5945C52C6BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

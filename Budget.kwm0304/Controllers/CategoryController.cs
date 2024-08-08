@@ -1,22 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Budget.kwm0304.Models;
 
 namespace Budget.kwm0304.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController(BudgetContext context) : Controller
     {
-        private readonly BudgetContext _context;
-
-        public CategoryController(BudgetContext context)
-        {
-            _context = context;
-        }
+        private readonly BudgetContext _context = context;
 
         // GET: Category
         public async Task<IActionResult> Index()

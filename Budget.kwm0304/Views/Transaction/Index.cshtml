@@ -1,4 +1,4 @@
-@model IEnumerable<Budget.kwm0304.Models.Transaction>
+@model Budget.kwm0304.Models.TransactionViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,26 +9,35 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-asp-controller="Transactions" asp-action="Index" method="get">
+    <p>
+        <select asp-for="TransactionCategory" asp-items="Model.Categories">
+            <option value="">All</option>
+            Name; <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Filter" />
+        </select>
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Transactions![0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Amount)
+                @Html.DisplayNameFor(model => model.Transactions![0].Amount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OccuredAt)
+                @Html.DisplayNameFor(model => model.Transactions![0].OccuredAt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransactionCategory)
+                @Html.DisplayNameFor(model => model.Transactions![0].TransactionCategory)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Transactions!) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -40,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.OccuredAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TransactionCategory.Name)
+                @Html.DisplayFor(modelItem => item.TransactionCategory!.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

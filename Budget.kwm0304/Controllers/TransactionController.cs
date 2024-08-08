@@ -15,10 +15,30 @@ namespace Budget.kwm0304.Controllers
         }
 
         // GET: Transaction
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string transactionCategory, string searchString)
         {
-            var budgetContext = _context.Transactions.Include(t => t.TransactionCategory);
-            return View(await budgetContext.ToListAsync());
+            if (_context.Transactions == null)
+            {
+                return Problem("Entity is null");
+            }
+            IQueryable<string> categoryQuery = from t in _context.Transactions
+                                               orderby t.TransactionCategory!.Name
+                                               select t.TransactionCategory!.Name;
+            var transactions = from t in _context.Transactions select t;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                transactions = transactions.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            }
+            if (!string.IsNullOrEmpty(transactionCategory))
+            {
+                transactions = transactions.Where(x => x.TransactionCategory!.Name == transactionCategory);
+            }
+            var transactionVM = new TransactionViewModel
+            {
+                Categories = new SelectList(await categoryQuery.Distinct().ToListAsync()),
+                Transactions = await transactions.ToListAsync()
+            };
+            return View(transactionVM);
         }
 
         // GET: Transaction/Details/5
